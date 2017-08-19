@@ -1,0 +1,44 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
+      - mongoconfig:/data/configdb
+    ports:
+      - "27017:27017"
+
+  elasticsearch23:
+    build: ./elasticsearch
+    image: elasticsearch23
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  mongo-seed:
+    build: ./mongo-seed
+    image: mongo-seed
+    depends_on:
+      - mongodb
+    links:
+      - mongodb
+
+  web:
+    # replace username/repo:tag with your name and image details
+    build: ./web
+    image: nodebb
+    volumes:
+      - nodebb:/usr/src/app/nodebb
+    depends_on:
+      - mongodb
+      - elasticsearch23
+    links:
+      - mongodb
+      - elasticsearch23
+    ports:
+      - "4567:4567"
