@@ -54,4 +54,4 @@
 
 * nodebb web
 
-    docker run --link=mongodb --link=elasticsearch23 -v nodebb:/usr/src/app/nodebb --name=nodebb -it -p 4569:4569 nodebb
+    docker run --link=mongodb --link=elasticsearch23 -v nodebb:/usr/src/app/nodebb --name=nodebb -it -p 4567:4567 nodebb

@@ -6,7 +6,7 @@ FROM node:6.11.2
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY nodebb /usr/src/app/nodebb
+COPY . /usr/src/app/nodebb
 RUN test -d nodebb/src || rm -rf nodebb && git clone -b v1.5.x https://github.com/NodeBB/NodeBB nodebb
 RUN npm config set registry http://registry.npmjs.org/
 RUN cd nodebb && test -d node_modules || npm install
