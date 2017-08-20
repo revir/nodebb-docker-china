@@ -38,6 +38,8 @@
 
     docker-compose up
 
+注意，默认 admin 密码是 `8fd66694`
+
 # Build (Optional)
 
 * mongodb

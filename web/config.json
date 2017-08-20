@@ -1,6 +1,7 @@
 {
     "url": "http://localhost:4567",
     "database": "mongo",
+    "secret": "23fsdfwe-s4sd-32r3-sdf3d-sdfe4568tdfgn",
     "port": 4567,
     "mongo": {
         "host": "mongodb",
