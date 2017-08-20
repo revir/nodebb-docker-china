@@ -42,3 +42,12 @@ services:
       - elasticsearch23
     ports:
       - "4567:4567"
+volumes:
+  nodebb:
+    driver: local
+  mongodata:
+    driver: local
+  mongoconfig:
+    driver: local
+  esdata:
+    driver: local
