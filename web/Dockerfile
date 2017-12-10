@@ -9,7 +9,10 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app/nodebb
 RUN test -d nodebb/src || rm -rf nodebb && git clone -b v1.7.x https://github.com/NodeBB/NodeBB nodebb
 RUN npm config set registry https://registry.npm.taobao.org
-RUN cd nodebb && test -d node_modules || npm install
+
+COPY /usr/src/app/nodebb/install/package.json /usr/src/app/nodebb/package.json
+
+RUN cd nodebb && test -d node_modules || npm install && npm cache clean --force
 
 COPY config.json /tmp
 RUN test -f nodebb/config.json || cp /tmp/config.json /usr/src/app/nodebb/
