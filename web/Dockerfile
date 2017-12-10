@@ -26,7 +26,7 @@ RUN test -d nodebb/local_node_modules/nodebb-plugin-search-elasticsearch || \
 
 RUN test -d nodebb/local_node_modules/nodebb-theme-v2mm || \
   cd nodebb/local_node_modules && \
-  git clone -b 1.5.x https://github.com/revir/nodebb-theme-v2mm.git
+  git clone -b master https://github.com/revir/nodebb-theme-v2mm.git
 
 
 RUN ln -s /usr/src/app/nodebb/local_node_modules/nodebb-plugin-composer-redactor /usr/src/app/nodebb/node_modules/nodebb-plugin-composer-redactor
