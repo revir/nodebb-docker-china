@@ -46,7 +46,7 @@ ENV NODE_ENV=development
 
 # build nodebb in series, not in parallel, otherwise the nodebb-plugin-composer-redactor
 # might get failed, parallel build would make dependencies order wrong.
-CMD cd nodebb && ./nodebb upgrade && ./nodebb start
+CMD cd nodebb && ./nodebb upgrade && ./nodebb dev
 
 # the default port for NodeBB is exposed outside the container
 EXPOSE 4567
