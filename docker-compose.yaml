@@ -8,18 +8,6 @@ services:
     ports:
       - "27017:27017"
 
-  elasticsearch23:
-    build: ./elasticsearch
-    image: elasticsearch23
-    volumes:
-      - esdata:/usr/share/elasticsearch/data
-    environment:
-      - http.host=0.0.0.0
-      - transport.host=127.0.0.1
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-
   mongo-seed:
     build: ./mongo-seed
     image: mongo-seed
@@ -36,10 +24,8 @@ services:
       - nodebb:/usr/src/app/nodebb
     depends_on:
       - mongodb
-      - elasticsearch23
     links:
       - mongodb
-      - elasticsearch23
     ports:
       - "4567:4567"
 volumes:
@@ -48,6 +34,4 @@ volumes:
   mongodata:
     driver: local
   mongoconfig:
-    driver: local
-  esdata:
     driver: local

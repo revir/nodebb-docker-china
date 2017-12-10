@@ -1,2 +1,3 @@
 web/nodebb
+web/config.json
 *.zip
